@@ -1,0 +1,1 @@
+# vcl-reports-store-layout-template-file
