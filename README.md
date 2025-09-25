@@ -11,7 +11,7 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 ## Testing the example
 
 * Run the sample app and click **New Report**.
-* Create a report layout (template) using any tools available in the [Report Designer](https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer) UI.
+* Create a report layout (template) using any tools available in the [Report Designer UI](https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer).
 * Click the hamburger button, select the **Save** option, type a report template name, and close the dialog.
 * Click **Save Report** to export the created report template as a REPX file.
 * Restart the app and click **Open Report** to import a report template from the previously saved REPX file.
