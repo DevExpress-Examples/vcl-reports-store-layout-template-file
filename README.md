@@ -20,7 +20,9 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 
 ## Documentation
 
-[TdxReport.Layout Property](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout)
+* [TdxReport.Layout Property](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout)
+* [TdxReportDataSetJSONConnection Component](https://docs.devexpress.com/VCL/dxReport.ConnectionString.JSON.DB.TdxReportDataSetJSONConnection)
+
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
@@ -28,3 +30,4 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
