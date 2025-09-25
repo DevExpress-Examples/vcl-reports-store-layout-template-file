@@ -17,6 +17,9 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 * Restart the app and click **Open Report** to import a report template from the previously saved REPX file.
 * Click **Show Designer** to display the imported template.
 
+## Documentation
+
+[TdxReport.Layout Property](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout)
 <!-- feedback -->
 ## Does this example address your development requirements/objectives?
 
