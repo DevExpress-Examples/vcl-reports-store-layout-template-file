@@ -5,17 +5,17 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# DevExpress VCL Reports - Store report layouts in text files
+# DevExpress VCL Reports - Store report layouts within text files 
 
-This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) in a text file.
+This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) within a text file.
 
 ## Testing the example
 
 * Run the sample app and click **New Report**.
-* Create a report layout (template) using any tools available in the [Report Designer UI](https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer).
-* Click the hamburger button, select the **Save** option, type a report template name, and close the dialog.
-* Click **Save Report** to export the created report template as a REPX file.
-* Restart the app and click **Open Report** to import a report template from the previously saved REPX file.
+* Create a report layout (template) using tools available in the DevExpress [Report Designer](https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer).
+* Click the hamburger button, select the **Save** option, enter a report template name, and close the dialog.
+* Click **Save Report** to export the generated report template as a REPX file.
+* Restart the app and click **Open Report** to import a report template from a previously saved REPX file.
 * Click **Show Designer** to display the imported template.
 
 ## Documentation
@@ -30,4 +30,5 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
