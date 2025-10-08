@@ -5,7 +5,7 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# DevExpress VCL Reports - Store report layouts within text files 
+# DevExpress VCL Reports - Store Report Layouts within Text Files 
 
 This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) within a text file.
 
@@ -30,5 +30,6 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
 
