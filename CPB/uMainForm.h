@@ -36,50 +36,46 @@
 #include <Data.DB.hpp>
 #include <Vcl.Menus.hpp>
 #include "dxmdaset.hpp"
-#include "uData.h"
 #include "dxShellDialogs.hpp"
 #include <Vcl.Dialogs.hpp>
+#include "dxReport.ConnectionString.SQL.hpp"
+#include "dxCore.h"
+#include "dxLayoutContainer.hpp"
+#include "dxLayoutControl.hpp"
+#include "dxLayoutControlAdapters.hpp"
+#include "dxSkinsForm.hpp"  // Declares the TdxReportDatabaseSQLConnection component
 //---------------------------------------------------------------------------
 class TMainForm : public TForm
 {
 __published:	// IDE-managed Components
+	TdxLayoutControl *dxLayoutControl1;
 	TcxButton *btnOpen;
-	TcxButton *btnViewReport;
-	TcxGrid *cxGrid1;
-	TcxGridDBTableView *gvCategories;
-	TcxGridDBColumn *gvCategoriesCategoryID;
-	TcxGridDBColumn *gvCategoriesCategoryName;
-	TcxGridDBColumn *gvCategoriesDescription;
-	TcxGridDBTableView *gvProducts;
-	TcxGridDBColumn *gvProductsProductID;
-	TcxGridDBColumn *gvProductsProductName;
-	TcxGridDBColumn *gvProductsSupplierID;
-	TcxGridDBColumn *gvProductsCategoryID;
-	TcxGridDBColumn *gvProductsQuantityPerUnit;
-	TcxGridDBColumn *gvProductsUnitPrice;
-	TcxGridDBColumn *gvProductsUnitsInStock;
-	TcxGridDBColumn *gvProductsUnitsOnOrder;
-	TcxGridDBColumn *gvProductsReorderLevel;
-	TcxGridDBColumn *gvProductsDiscontinued;
-	TcxGridDBColumn *gvProductsEAN13;
-	TcxGridLevel *cxGrid1Level1;
-	TcxGridLevel *cxGrid1Level2;
+	TcxButton *btnPreview;
 	TcxButton *btnNew;
+	TcxButton *btnSave;
+	TcxButton *btnDesign;
+	TdxLayoutGroup *dxLayoutControl1Group_Root;
+	TdxLayoutItem *liNew;
+	TdxLayoutItem *liOpen;
+	TdxLayoutItem *liSave;
+	TdxLayoutItem *liDesign;
+	TdxLayoutItem *liPreview;
+	TdxLayoutLabeledItem *dxLayoutLabeledItem1;
+	TdxLayoutGroup *dxLayoutGroup1;
+	TdxLayoutGroup *dxLayoutGroup2;
 	TdxReport *dxReport1;
-	TdxReportDataConnectionManager *dxReportDataConnectionManager1;
-	TdxReportDataSetJSONConnection *dxReportDataConnectionManager1dxReportDataSetJSONConnection1;
-	TdxReportDataSetCollectionItem *itmProducts;
-	TdxReportDataSetCollectionItem *itmCategories;
 	TdxOpenFileDialog *dxOpenFileDialog;
 	TdxSaveFileDialog *dxSaveFileDialog;
-	TcxButton *btnSave;
-	TcxButton *btnShowDesigner;
+	TdxReportDataConnectionManager *dxReportDataConnectionManager;
+	TdxReportDatabaseSQLConnection *ReportsNWindConnectionString;
+	TdxSkinController *dxSkinController1;
 	void __fastcall btnNewClick(TObject *Sender);
 	void __fastcall btnOpenClick(TObject *Sender);
 	void __fastcall btnSaveClick(TObject *Sender);
-	void __fastcall btnShowDesignerClick(TObject *Sender);
-	void __fastcall btnViewReportClick(TObject *Sender);
 	void __fastcall dxReport1LayoutChanged(TdxReport *ASender);
+	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall btnDesignClick(TObject *Sender);
+	void __fastcall btnPreviewClick(TObject *Sender);
 private:	// User declarations
 protected:
     void __fastcall LoadData();

@@ -11,47 +11,41 @@ uses
   Data.DB, cxDBData, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, FireDAC.Comp.DataSet,
   FireDAC.Comp.Client, dxReport.ConnectionString.JSON.DB,
-  dxReport.ConnectionString.JSON, Vcl.StdCtrls, dxmdaset, uData, dxShellDialogs;
+  dxReport.ConnectionString.JSON, Vcl.StdCtrls, dxmdaset, dxShellDialogs,
+  dxReport.ConnectionString.SQL, dxLayoutControlAdapters, dxLayoutContainer,
+  dxLayoutControl, dxCore, dxSkinsForm, System.ImageList, Vcl.ImgList,
+  cxImageList;
 
 type
   TMainForm = class(TForm)
     dxReport1: TdxReport;
-    dxReportDataConnectionManager1: TdxReportDataConnectionManager;
     btnOpen: TcxButton;
-    btnViewReport: TcxButton;
-    dxReportDataConnectionManager1dxReportDataSetJSONConnection1: TdxReportDataSetJSONConnection;
-    itmProducts: TdxReportDataSetCollectionItem;
-    itmCategories: TdxReportDataSetCollectionItem;
-    cxGrid1: TcxGrid;
-    gvCategories: TcxGridDBTableView;
-    gvCategoriesCategoryID: TcxGridDBColumn;
-    gvCategoriesCategoryName: TcxGridDBColumn;
-    gvCategoriesDescription: TcxGridDBColumn;
-    gvProducts: TcxGridDBTableView;
-    gvProductsProductID: TcxGridDBColumn;
-    gvProductsProductName: TcxGridDBColumn;
-    gvProductsSupplierID: TcxGridDBColumn;
-    gvProductsCategoryID: TcxGridDBColumn;
-    gvProductsQuantityPerUnit: TcxGridDBColumn;
-    gvProductsUnitPrice: TcxGridDBColumn;
-    gvProductsUnitsInStock: TcxGridDBColumn;
-    gvProductsUnitsOnOrder: TcxGridDBColumn;
-    gvProductsReorderLevel: TcxGridDBColumn;
-    gvProductsDiscontinued: TcxGridDBColumn;
-    gvProductsEAN13: TcxGridDBColumn;
-    cxGrid1Level1: TcxGridLevel;
-    cxGrid1Level2: TcxGridLevel;
+    btnPreview: TcxButton;
     btnNew: TcxButton;
     dxOpenFileDialog: TdxOpenFileDialog;
     dxSaveFileDialog: TdxSaveFileDialog;
     btnSave: TcxButton;
-    btnShowDesigner: TcxButton;
+    btnDesign: TcxButton;
+    dxReportDataConnectionManager: TdxReportDataConnectionManager;
+    ReportsNWindConnectionString: TdxReportDatabaseSQLConnection;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    liNew: TdxLayoutItem;
+    liOpen: TdxLayoutItem;
+    liSave: TdxLayoutItem;
+    liDesign: TdxLayoutItem;
+    liPreview: TdxLayoutItem;
+    dxSkinController1: TdxSkinController;
+    dxLayoutLabeledItem1: TdxLayoutLabeledItem;
+    dxLayoutGroup1: TdxLayoutGroup;
+    dxLayoutGroup2: TdxLayoutGroup;
     procedure btnOpenClick(Sender: TObject);
-    procedure btnViewReportClick(Sender: TObject);
+    procedure btnPreviewClick(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
-    procedure btnShowDesignerClick(Sender: TObject);
+    procedure btnDesignClick(Sender: TObject);
     procedure dxReport1LayoutChanged(ASender: TdxReport);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,7 +61,7 @@ implementation
 
 procedure TMainForm.btnNewClick(Sender: TObject);
 begin
-  Caption := '';
+  Caption := '*';
   dxReport1.ReportName := '';
   dxReport1.ShowDesigner;
 end;
@@ -98,12 +92,12 @@ begin
   end;
 end;
 
-procedure TMainForm.btnShowDesignerClick(Sender: TObject);
+procedure TMainForm.btnDesignClick(Sender: TObject);
 begin
   dxReport1.ShowDesigner;
 end;
 
-procedure TMainForm.btnViewReportClick(Sender: TObject);
+procedure TMainForm.btnPreviewClick(Sender: TObject);
 begin
   if (dxReport1.ReportName = '')  then
   begin
@@ -116,6 +110,17 @@ end;
 procedure TMainForm.dxReport1LayoutChanged(ASender: TdxReport);
 begin
   Caption := dxReport1.ReportName;
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+const
+  AFileName = '..\..\..\TableReport.repx';
+begin
+  if FileExists(AFileName) then
+  begin
+    dxReport1.ReportName := 'TableReport';
+    dxReport1.Layout.LoadFromFile(AFileName);
+  end;
 end;
 
 end.

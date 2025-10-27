@@ -41,6 +41,12 @@
 #pragma link "dxScrollbarAnnotations"
 #pragma link "dxmdaset"
 #pragma link "dxShellDialogs"
+
+#pragma link "dxCore"
+#pragma link "dxLayoutContainer"
+#pragma link "dxLayoutControl"
+#pragma link "dxLayoutControlAdapters"
+#pragma link "dxSkinsForm"
 #pragma resource "*.dfm"
 TMainForm *MainForm;
 //---------------------------------------------------------------------------
@@ -49,8 +55,6 @@ __fastcall TMainForm::TMainForm(TComponent* Owner)
 {
 
 }
-//---------------------------------------------------------------------------
-
 //---------------------------------------------------------------------
 
 void __fastcall TMainForm::btnNewClick(TObject *Sender)
@@ -86,25 +90,40 @@ void __fastcall TMainForm::btnSaveClick(TObject *Sender)
     }
 }
 
-void __fastcall TMainForm::btnShowDesignerClick(TObject *Sender)
+void __fastcall TMainForm::btnDesignClick(TObject *Sender)
 {
-    dxReport1->ShowDesigner();
+	dxReport1->ShowDesigner();
 }
 
-void __fastcall TMainForm::btnViewReportClick(TObject *Sender)
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::btnPreviewClick(TObject *Sender)
 {
     if (dxReport1->ReportName == "")
-    {
-        ShowMessage("Report is not specified");
-        return;
-    }
-    dxReport1->ShowViewer();
+	{
+		ShowMessage("Report is not specified");
+		return;
+	}
+	dxReport1->ShowViewer();
 }
-
 void __fastcall TMainForm::dxReport1LayoutChanged(TdxReport *ASender)
 {
-    Caption = dxReport1->ReportName;
+	Caption = dxReport1->ReportName;
 }
+
+//---------------------------------------------------------------------------
+
+void __fastcall TMainForm::FormCreate(TObject *Sender)
+{
+    const String AFileName = "..\\..\\..\\TableReport.repx";
+    if (FileExists(AFileName))
+    {
+        dxReport1->ReportName = "TableReport";
+        dxReport1->Layout->LoadFromFile(AFileName);
+	}
+}
+//---------------------------------------------------------------------------
+
 
 //---------------------------------------------------------------------------
 
