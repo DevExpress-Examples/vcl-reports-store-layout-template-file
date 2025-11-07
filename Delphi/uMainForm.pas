@@ -6,15 +6,15 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxClasses, dxReport, cxGraphics,
   cxLookAndFeels, cxLookAndFeelPainters, Vcl.Menus,  cxButtons,
-  dxReport.Backend, cxControls, cxStyles, cxCustomData, cxFilter, cxData,
+  cxControls, cxStyles, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, dxDateRanges, dxScrollbarAnnotations,
   Data.DB, cxDBData, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, dxReport.ConnectionString.JSON.DB,
-  dxReport.ConnectionString.JSON, Vcl.StdCtrls, dxmdaset, dxShellDialogs,
-  dxReport.ConnectionString.SQL, dxLayoutControlAdapters, dxLayoutContainer,
+  FireDAC.Comp.Client,
+  Vcl.StdCtrls, dxmdaset, dxShellDialogs,
+  dxLayoutControlAdapters, dxLayoutContainer,
   dxLayoutControl, dxCore, dxSkinsForm, System.ImageList, Vcl.ImgList,
-  cxImageList;
+  cxImageList, dxBackend, dxBackend.ConnectionString.SQL;
 
 type
   TMainForm = class(TForm)
@@ -26,8 +26,8 @@ type
     dxSaveFileDialog: TdxSaveFileDialog;
     btnSave: TcxButton;
     btnDesign: TcxButton;
-    dxReportDataConnectionManager: TdxReportDataConnectionManager;
-    ReportsNWindConnectionString: TdxReportDatabaseSQLConnection;
+    dxBackendDataConnectionManager: TdxBackendDataConnectionManager;
+    ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection;
     dxLayoutControl1Group_Root: TdxLayoutGroup;
     dxLayoutControl1: TdxLayoutControl;
     liNew: TdxLayoutItem;

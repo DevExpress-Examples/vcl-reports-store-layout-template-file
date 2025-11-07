@@ -151,6 +151,7 @@ object MainForm: TMainForm
     end
   end
   object dxReport1: TdxReport
+    Parameters = <>
     OnLayoutChanged = dxReport1LayoutChanged
     Left = 48
     Top = 214
@@ -167,10 +168,10 @@ object MainForm: TMainForm
     Left = 96
     Top = 160
   end
-  object dxReportDataConnectionManager: TdxReportDataConnectionManager
+  object dxBackendDataConnectionManager1: TdxBackendDataConnectionManager
     Left = 48
     Top = 160
-    object ReportsNWindConnectionString: TdxReportDatabaseSQLConnection
+    object ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection
       DisplayName = 'NWindConnectionString'
       ConnectionString = 
         'XpoProvider=SQLite; Data Source=|DataDirectory|\..\..\..\nwind.d' +

@@ -28,9 +28,6 @@
 #include "cxNavigator.hpp"
 #include "cxStyles.hpp"
 #include "dxDateRanges.hpp"
-#include "dxReport.Backend.hpp"
-#include "dxReport.ConnectionString.JSON.DB.hpp"
-#include "dxReport.ConnectionString.JSON.hpp"
 #include "dxReport.hpp"
 #include "dxScrollbarAnnotations.hpp"
 #include <Data.DB.hpp>
@@ -38,12 +35,13 @@
 #include "dxmdaset.hpp"
 #include "dxShellDialogs.hpp"
 #include <Vcl.Dialogs.hpp>
-#include "dxReport.ConnectionString.SQL.hpp"
 #include "dxCore.h"
 #include "dxLayoutContainer.hpp"
 #include "dxLayoutControl.hpp"
 #include "dxLayoutControlAdapters.hpp"
-#include "dxSkinsForm.hpp"  // Declares the TdxReportDatabaseSQLConnection component
+#include "dxSkinsForm.hpp"
+#include "dxBackend.ConnectionString.SQL.hpp"
+#include "dxBackend.hpp"  // Declares the TdxBackendDatabaseSQLConnection component
 //---------------------------------------------------------------------------
 class TMainForm : public TForm
 {
@@ -66,8 +64,8 @@ __published:	// IDE-managed Components
 	TdxReport *dxReport1;
 	TdxOpenFileDialog *dxOpenFileDialog;
 	TdxSaveFileDialog *dxSaveFileDialog;
-	TdxReportDataConnectionManager *dxReportDataConnectionManager;
-	TdxReportDatabaseSQLConnection *ReportsNWindConnectionString;
+	TdxBackendDataConnectionManager *dxBackendDataConnectionManager1;
+	TdxBackendDatabaseSQLConnection *ReportsNWindConnectionString;
 	TdxSkinController *dxSkinController1;
 	void __fastcall btnNewClick(TObject *Sender);
 	void __fastcall btnOpenClick(TObject *Sender);

@@ -27,16 +27,6 @@
 #pragma link "cxNavigator"
 #pragma link "cxStyles"
 #pragma link "dxDateRanges"
-#pragma link "dxReport"
-#pragma link "dxReport.Backend"
-#pragma link "dxReport.ConnectionString.JSON"
-
-#if defined(_WIN64)
-  #pragma link "dxReport.ConnectionString.JSON.DB.O"
-#else
-  #pragma link "dxReport.ConnectionString.JSON.DB.OBJ"
-#endif
-
 
 #pragma link "dxScrollbarAnnotations"
 #pragma link "dxmdaset"
@@ -47,6 +37,16 @@
 #pragma link "dxLayoutControl"
 #pragma link "dxLayoutControlAdapters"
 #pragma link "dxSkinsForm"
+
+#pragma link "dxBackend"
+
+#if defined(_WIN64)
+  #pragma link "dxBackend.ConnectionString.SQL.O"
+#else
+  #pragma link "dxBackend.ConnectionString.SQL.OBJ"
+#endif
+
+
 #pragma resource "*.dfm"
 TMainForm *MainForm;
 //---------------------------------------------------------------------------

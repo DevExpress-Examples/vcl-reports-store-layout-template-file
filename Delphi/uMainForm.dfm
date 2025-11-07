@@ -1,8 +1,8 @@
 object MainForm: TMainForm
   Left = 0
   Top = 0
-  Width = 577
-  Height = 312
+  Width = 587
+  Height = 344
   AutoScroll = True
   AutoSize = True
   Caption = 'MainForm'
@@ -152,6 +152,7 @@ object MainForm: TMainForm
     end
   end
   object dxReport1: TdxReport
+    Parameters = <>
     OnLayoutChanged = dxReport1LayoutChanged
     Left = 40
     Top = 192
@@ -168,10 +169,10 @@ object MainForm: TMainForm
     Left = 96
     Top = 144
   end
-  object dxReportDataConnectionManager: TdxReportDataConnectionManager
+  object dxBackendDataConnectionManager: TdxBackendDataConnectionManager
     Left = 40
     Top = 144
-    object ReportsNWindConnectionString: TdxReportDatabaseSQLConnection
+    object ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection
       DisplayName = 'NWindConnectionString'
       ConnectionString = 
         'XpoProvider=SQLite; Data Source=|DataDirectory|\..\..\..\nwind.d' +
