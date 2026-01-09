@@ -9,6 +9,12 @@
 
 This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) (XML-based template) within a text file.
 
+## Prerequisites
+
+* Microsoft Windows 10 or newer
+* Embarcadero RAD Studio IDE 12.3 (Athens) or newer (Community Edition is not supported)
+* DevExpress VCL Components v25.2.3 or newer
+
 ## Testing the example
 
 * Run the sample app and click **New Report**.
@@ -30,6 +36,7 @@ This example stores a [report layout](https://docs.devexpress.com/VCL/dxReport.T
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
 
 
 
