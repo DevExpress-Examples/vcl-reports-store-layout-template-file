@@ -47,10 +47,10 @@ class TMainForm : public TForm
 {
 __published:	// IDE-managed Components
 	TdxLayoutControl *dxLayoutControl1;
-	TcxButton *btnOpen;
+	TcxButton *btnImport;
 	TcxButton *btnPreview;
 	TcxButton *btnNew;
-	TcxButton *btnSave;
+	TcxButton *btnSaveToFile;
 	TcxButton *btnDesign;
 	TdxLayoutGroup *dxLayoutControl1Group_Root;
 	TdxLayoutItem *liNew;
@@ -64,12 +64,12 @@ __published:	// IDE-managed Components
 	TdxReport *dxReport1;
 	TdxOpenFileDialog *dxOpenFileDialog;
 	TdxSaveFileDialog *dxSaveFileDialog;
-	TdxBackendDataConnectionManager *dxBackendDataConnectionManager1;
+	TdxBackendDataConnectionManager *dxBackendDataConnectionManager;
 	TdxBackendDatabaseSQLConnection *ReportsNWindConnectionString;
 	TdxSkinController *dxSkinController1;
 	void __fastcall btnNewClick(TObject *Sender);
-	void __fastcall btnOpenClick(TObject *Sender);
-	void __fastcall btnSaveClick(TObject *Sender);
+	void __fastcall btnImportClick(TObject *Sender);
+	void __fastcall btnSaveToFileClick(TObject *Sender);
 	void __fastcall dxReport1LayoutChanged(TdxReport *ASender);
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall btnDesignClick(TObject *Sender);
@@ -77,6 +77,7 @@ __published:	// IDE-managed Components
 private:	// User declarations
 protected:
     void __fastcall LoadData();
+    void __fastcall ImportReport(const String &FileName);
 public:		// User declarations
 	__fastcall TMainForm(TComponent* Owner);
 };

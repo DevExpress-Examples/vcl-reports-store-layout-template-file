@@ -3,8 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 #include <tchar.h>
-//---------------------------------------------------------------------------
-USEFORM("uMainForm.cpp", MainForm);
+#include "uMainForm.h"
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -12,6 +11,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
+		Application->Title = "DevExpress Example";
 		Application->CreateForm(__classid(TMainForm), &MainForm);
 		Application->Run();
 	}
