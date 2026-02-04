@@ -1,4 +1,4 @@
-unit uMainForm;
+﻿unit uMainForm;
 
 interface
 
@@ -19,12 +19,12 @@ uses
 type
   TMainForm = class(TForm)
     dxReport1: TdxReport;
-    btnOpen: TcxButton;
+    btnImport: TcxButton;
     btnPreview: TcxButton;
     btnNew: TcxButton;
     dxOpenFileDialog: TdxOpenFileDialog;
     dxSaveFileDialog: TdxSaveFileDialog;
-    btnSave: TcxButton;
+    btnSaveToFile: TcxButton;
     btnDesign: TcxButton;
     dxBackendDataConnectionManager: TdxBackendDataConnectionManager;
     ReportsNWindConnectionString: TdxBackendDatabaseSQLConnection;
@@ -39,13 +39,14 @@ type
     dxLayoutLabeledItem1: TdxLayoutLabeledItem;
     dxLayoutGroup1: TdxLayoutGroup;
     dxLayoutGroup2: TdxLayoutGroup;
-    procedure btnOpenClick(Sender: TObject);
+    procedure btnImportClick(Sender: TObject);
     procedure btnPreviewClick(Sender: TObject);
     procedure btnNewClick(Sender: TObject);
-    procedure btnSaveClick(Sender: TObject);
+    procedure btnSaveToFileClick(Sender: TObject);
     procedure btnDesignClick(Sender: TObject);
     procedure dxReport1LayoutChanged(ASender: TdxReport);
     procedure FormCreate(Sender: TObject);
+    procedure ImportReport(const AFileName: string);
   private
     { Private declarations }
   public
@@ -59,36 +60,65 @@ implementation
 
 {$R *.dfm}
 
+const
+  BASE_CAPTION = 'DevExpress Example — ';
+
+procedure TMainForm.ImportReport(const AFileName: string);
+begin
+  if FileExists(AFileName) then
+  begin
+    // Import a report layout from a file
+    dxReport1.Layout.LoadFromFile(AFileName);
+    // Assign the file's name as an internal report name
+    dxReport1.ReportName := ChangeFileExt(ExtractFileName(AFileName), '');
+    // Update the form caption based on the report name
+    Caption := BASE_CAPTION + dxReport1.ReportName;
+  end
+  else
+  begin
+    ShowMessage('The specified file could not be found: ' + AFileName);
+  end;
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+const
+  // Assumes that the compiled executable is located in ./Delphi/Win*/[Debug|Release]/
+  AFileName = '..\..\..\Table Report.repx';
+begin
+  ImportReport(AFileName);
+end;
+
 procedure TMainForm.btnNewClick(Sender: TObject);
 begin
-  Caption := '*';
+  Caption := BASE_CAPTION + 'New Report Layout';
   dxReport1.ReportName := '';
   dxReport1.ShowDesigner;
 end;
 
-procedure TMainForm.btnOpenClick(Sender: TObject);
+procedure TMainForm.btnImportClick(Sender: TObject);
 begin
   if dxOpenFileDialog.Execute then
-  begin
-    Caption := ChangeFileExt(ExtractFileName(dxOpenFileDialog.FileName), '');
-    dxReport1.ReportName := Caption;
-    dxReport1.Layout.LoadFromFile(dxOpenFileDialog.FileName);
-  end;
+    ImportReport(dxOpenFileDialog.FileName);
 end;
 
-procedure TMainForm.btnSaveClick(Sender: TObject);
+
+procedure TMainForm.btnSaveToFileClick(Sender: TObject);
 begin
   if dxReport1.ReportName = '' then
   begin
-    ShowMessage('Report is not specified');
+    ShowMessage('No report is currently open. Please import or create a new report before saving.');
     Exit;
   end;
-
+  // Suggest a file name based on the report name
+  dxSaveFileDialog.FileName := dxReport1.ReportName;
   if dxSaveFileDialog.Execute then
   begin
+    // Update the report name based on the selected file name
     dxReport1.ReportName := ChangeFileExt(ExtractFileName(dxSaveFileDialog.FileName), '');
-    Caption := dxReport1.ReportName;
+    // Save the report layout to a file
     dxReport1.Layout.SaveToFile(dxSaveFileDialog.FileName);
+    // Update the form caption based on the report name
+    Caption := BASE_CAPTION + dxReport1.ReportName;
   end;
 end;
 
@@ -101,7 +131,7 @@ procedure TMainForm.btnPreviewClick(Sender: TObject);
 begin
   if (dxReport1.ReportName = '')  then
   begin
-    ShowMessage('Report is not specified');
+    ShowMessage('No report is currently open. Please import or create a new report before previewing.');
     Exit;
   end;
   dxReport1.ShowViewer;
@@ -109,18 +139,7 @@ end;
 
 procedure TMainForm.dxReport1LayoutChanged(ASender: TdxReport);
 begin
-  Caption := dxReport1.ReportName;
-end;
-
-procedure TMainForm.FormCreate(Sender: TObject);
-const
-  AFileName = '..\..\..\TableReport.repx';
-begin
-  if FileExists(AFileName) then
-  begin
-    dxReport1.ReportName := 'TableReport';
-    dxReport1.Layout.LoadFromFile(AFileName);
-  end;
+  Caption := BASE_CAPTION + dxReport1.ReportName;
 end;
 
 end.

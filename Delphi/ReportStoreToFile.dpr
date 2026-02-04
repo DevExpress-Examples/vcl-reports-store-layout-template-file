@@ -10,6 +10,7 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.Title := 'DevExpress Example';
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;
 end.
