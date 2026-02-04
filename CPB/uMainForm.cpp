@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -49,44 +49,70 @@
 
 #pragma resource "*.dfm"
 TMainForm *MainForm;
-//---------------------------------------------------------------------------
+
+const String BASE_CAPTION = "DevExpress Example — ";
+
 __fastcall TMainForm::TMainForm(TComponent* Owner)
 	: TForm(Owner)
 {
-
 }
-//---------------------------------------------------------------------
+
+void __fastcall TMainForm::ImportReport(const String &FileName)
+{
+    if (FileExists(FileName))
+    {
+		// Load a report layout from a file
+        dxReport1->Layout->LoadFromFile(FileName);
+        // Assign the loaded file's name as an internal report name
+        dxReport1->ReportName = ChangeFileExt(ExtractFileName(FileName), "");
+        // Update the form caption based on the report name
+        Caption = BASE_CAPTION + dxReport1->ReportName;
+    }
+    else
+    {
+        ShowMessage("The specified file could not be found: " + FileName);
+    }
+}
+
+void __fastcall TMainForm::FormCreate(TObject *Sender)
+{
+    // Assumes that the compiled executable is located in ./Delphi/Win*/[Debug|Release]/
+    const String AFileName = "..\\..\\..\\Table Report.repx";
+    ImportReport(AFileName);
+}
 
 void __fastcall TMainForm::btnNewClick(TObject *Sender)
 {
-    Caption = "";
+    Caption = BASE_CAPTION + "New Report Layout";
     dxReport1->ReportName = "";
     dxReport1->ShowDesigner();
 }
 
-void __fastcall TMainForm::btnOpenClick(TObject *Sender)
+void __fastcall TMainForm::btnImportClick(TObject *Sender)
 {
     if (dxOpenFileDialog->Execute())
     {
-        Caption = ChangeFileExt(ExtractFileName(dxOpenFileDialog->FileName), "");
-        dxReport1->ReportName = Caption;
-        dxReport1->Layout->LoadFromFile(dxOpenFileDialog->FileName);
+        ImportReport(dxOpenFileDialog->FileName);
     }
 }
 
-void __fastcall TMainForm::btnSaveClick(TObject *Sender)
+void __fastcall TMainForm::btnSaveToFileClick(TObject *Sender)
 {
-    if (dxReport1->ReportName == "")
+    if (dxReport1->ReportName.IsEmpty())
     {
-        ShowMessage("Report is not specified");
+        ShowMessage("No report is currently open. Please import or create a new report before exporting.");
         return;
     }
-
+    // Suggest a file name based on the report name
+    dxSaveFileDialog->FileName = dxReport1->ReportName;
     if (dxSaveFileDialog->Execute())
-    {
+    {   
+        // Update the report name based on the selected file name
         dxReport1->ReportName = ChangeFileExt(ExtractFileName(dxSaveFileDialog->FileName), "");
-        Caption = dxReport1->ReportName;
-		dxReport1->Layout->SaveToFile(dxSaveFileDialog->FileName);
+        // Save the report layout to a file
+        dxReport1->Layout->SaveToFile(dxSaveFileDialog->FileName);
+        // Update the form caption based on the report name
+        Caption = BASE_CAPTION + dxReport1->ReportName;
     }
 }
 
@@ -95,35 +121,17 @@ void __fastcall TMainForm::btnDesignClick(TObject *Sender)
 	dxReport1->ShowDesigner();
 }
 
-//---------------------------------------------------------------------------
-
 void __fastcall TMainForm::btnPreviewClick(TObject *Sender)
 {
     if (dxReport1->ReportName == "")
-	{
-		ShowMessage("Report is not specified");
-		return;
-	}
-	dxReport1->ShowViewer();
+    {
+        ShowMessage("No report is currently loaded. Please load or create a report before previewing.");
+        return;
+    }
+    dxReport1->ShowViewer();
 }
 void __fastcall TMainForm::dxReport1LayoutChanged(TdxReport *ASender)
 {
-	Caption = dxReport1->ReportName;
+    Caption = BASE_CAPTION + dxReport1->ReportName;
 }
-
-//---------------------------------------------------------------------------
-
-void __fastcall TMainForm::FormCreate(TObject *Sender)
-{
-    const String AFileName = "..\\..\\..\\TableReport.repx";
-    if (FileExists(AFileName))
-    {
-        dxReport1->ReportName = "TableReport";
-        dxReport1->Layout->LoadFromFile(AFileName);
-	}
-}
-//---------------------------------------------------------------------------
-
-
-//---------------------------------------------------------------------------
 
