@@ -5,9 +5,10 @@
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# DevExpress VCL Reports – Import and Save Report Layouts to XML Files
+# DevExpress&nbsp;VCL&nbsp;Reports&nbsp;– Import&nbsp;and&nbsp;Save Report&nbsp;Layouts to XML&nbsp;Files
 
-This example uses XML-based REPX files as [report layout](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout) storage.
+This example uses XML-based REPX files as [report layout](https://docs.devexpress.com/VCL/405469/ExpressReports/vcl-reports) storage.
+
 Run the app and execute the following actions:
 
 -   Customize our predefined layout and save it to a new file.
@@ -19,7 +20,7 @@ Run the app and execute the following actions:
 
 ## Prerequisites
 
-See: [DevExpress Reports Prerequisites](https://docs.devexpress.com/VCL/405469/ExpressReports/vcl-reports#expressreports-prerequisites)
+See: [DevExpress Reports Prerequisites](https://docs.devexpress.com/VCL/405768/ExpressCrossPlatformLibrary/general-recommendations/vcl-web-view-2-based-app-deployment#vcl-reportsdashboards-prerequisites)
 
 
 ## Implementation Details
@@ -111,7 +112,8 @@ You can design a new layout from scratch and then save it to a REPX file:
 1.  Build and run the sample application.
 2.  Click **Create New** to open a new blank report layout in the DevExpress
     [Report Designer](https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer).
-3.  Design the report layout (template) using tools available in the **Report Designer**.
+3.  Design the report layout (template) using tools available in the **Report Designer**.  
+    Follow the tutorial: [Create a table report using the Report Wizard](https://docs.devexpress.com/VCL/405760/ExpressReports/getting-started/create-table-report-using-report-wizard).
 4.  Once you have made all necessary changes in the **Report Designer** dialog, click the hamburger button, select **Save**, and enter a report layout name.
     Click **Save** and close the dialog.
 5.  Click **Save to File** to save the report layout to a REPX file.
@@ -123,11 +125,12 @@ You can design a new layout from scratch and then save it to a REPX file:
 ## Documentation and Examples
 
 -   [Introduction to VCL Reports](https://docs.devexpress.com/VCL/405469/ExpressReports/vcl-reports)
+-   [Tutorial: Create a table report using the Report Wizard](https://docs.devexpress.com/VCL/405760/ExpressReports/getting-started/create-table-report-using-report-wizard)
 -   [How to store report layouts in REPX files at design-time](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout#string-list-editor)
 -   [How to store report layouts in a database (example application)](https://github.com/DevExpress-Examples/vcl-reports-store-layout-template-database)
--   [How to use SQLite as a data source for reports (as demonstrated in this example)](https://docs.devexpress.com/VCL/405750/ExpressCrossPlatformLibrary/vcl-backend/database-engines/vcl-backend-sqlite-support)
--   [TdxReport.Layout Property API reference](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout)
--   [TdxBackendDatabaseSQLConnection Component API reference](https://docs.devexpress.com/VCL/dxBackend.ConnectionString.SQL.TdxBackendDatabaseSQLConnection)
+-   [How to use SQLite as a data source for reports (as demonstrated in the current example)](https://docs.devexpress.com/VCL/405750/ExpressCrossPlatformLibrary/vcl-backend/database-engines/vcl-backend-sqlite-support)
+-   [API reference: `TdxReport.Layout` Property](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout)
+-   [API reference: `TdxBackendDatabaseSQLConnection` Component](https://docs.devexpress.com/VCL/dxBackend.ConnectionString.SQL.TdxBackendDatabaseSQLConnection)
 
 
 <!-- feedback -->
