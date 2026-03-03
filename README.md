@@ -17,6 +17,7 @@ Run the app and execute the following actions:
 
 <img width="450" src="./images/app.png" alt="An application with buttons to create a new report, import and save reports, open a report designer and report viewer" />
 
+---
 
 ## Prerequisites
 
