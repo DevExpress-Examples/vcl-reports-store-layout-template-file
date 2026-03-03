@@ -20,7 +20,7 @@ Run the app and execute the following actions:
 
 ## Prerequisites
 
-See: [DevExpress Reports Prerequisites](https://docs.devexpress.com/VCL/405768/ExpressCrossPlatformLibrary/general-recommendations/vcl-web-view-2-based-app-deployment#vcl-reportsdashboards-prerequisites)
+[DevExpress Reports Prerequisites](https://docs.devexpress.com/VCL/405773/ExpressCrossPlatformLibrary/vcl-backend/reports-dashboards-app-deployment#vcl-reportsdashboards-prerequisites)
 
 
 ## Implementation Details
