@@ -26,6 +26,43 @@ Run the app and execute the following actions:
 [req]: https://docs.devexpress.com/VCL/405773/ExpressCrossPlatformLibrary/vcl-backend/reports-dashboards-app-deployment#vcl-reportsdashboards-prerequisites
 
 
+## Test the Example
+
+### Modify the Pre-loaded Layout and Save to a New File
+
+The example application loads a predefined layout at startup: [TableReport.repx].
+You can modify this preloaded report layout and then save changes to a REPX file.
+
+1.  Build and run the sample application. 
+    Note the preloaded layout's name in the application's caption.
+2.  Click **Open Designer** to edit the loaded layout in the DevExpress
+    [Report Designer][designer].
+    Modify the layout as you see fit.
+3.  Once you have made changes in the **Report Designer** dialog, click the hamburger button, select **Save**, and close the dialog.
+4.  Click **Save to File** to save the report layout to a REPX file.
+    You can overwrite an existing file or create a new file.
+5.  Restart the application and click **Import from File** to import a report layout from the previously saved REPX file.
+6.  Click **Open Viewer** to display the imported layout in the DevExpress
+    [Report Viewer][viewer].
+
+
+### Create, Design, and Save a New Layout
+
+You can design a new layout from scratch and then save it to a REPX file:
+
+1.  Build and run the sample application.
+2.  Click **Create New** to open a new blank report layout in the DevExpress
+    [Report Designer][designer].
+3.  Design the report layout (template) using tools available in the **Report Designer**.  
+    Follow the tutorial: [Create a table report using the Report Wizard][wizard-tutorial].
+4.  Once you have made all necessary changes in the **Report Designer** dialog, click the hamburger button, select **Save**, and enter a report layout name.
+    Click **Save** and close the dialog.
+5.  Click **Save to File** to save the report layout to a REPX file.
+6.  Restart the application and click **Import from File** to import a report layout from the previously saved REPX file.
+7.  Click **Open Viewer** to display the imported layout in the DevExpress
+    [Report Viewer][viewer].
+
+
 ## Implementation Details
 
 ### Import a Report Layout from a File
@@ -87,43 +124,6 @@ void __fastcall TMainForm::SaveReport(const String &FileName)
 
 > [!Note]
 > Internal report names are not stored in REPX files.
-
-
-## Test the Example
-
-### Modify the Pre-loaded Layout and Save to a New File
-
-The example application loads a predefined layout at startup: [TableReport.repx].
-You can modify this preloaded report layout and then save changes to a REPX file.
-
-1.  Build and run the sample application. 
-    Note the preloaded layout's name in the application's caption.
-2.  Click **Open Designer** to edit the loaded layout in the DevExpress
-    [Report Designer][designer].
-    Modify the layout as you see fit.
-3.  Once you have made changes in the **Report Designer** dialog, click the hamburger button, select **Save**, and close the dialog.
-4.  Click **Save to File** to save the report layout to a REPX file.
-    You can overwrite an existing file or create a new file.
-5.  Restart the application and click **Import from File** to import a report layout from the previously saved REPX file.
-6.  Click **Open Viewer** to display the imported layout in the DevExpress
-    [Report Viewer][viewer].
-
-
-### Create, Design, and Save a New Layout
-
-You can design a new layout from scratch and then save it to a REPX file:
-
-1.  Build and run the sample application.
-2.  Click **Create New** to open a new blank report layout in the DevExpress
-    [Report Designer][designer].
-3.  Design the report layout (template) using tools available in the **Report Designer**.  
-    Follow the tutorial: [Create a table report using the Report Wizard][wizard-tutorial].
-4.  Once you have made all necessary changes in the **Report Designer** dialog, click the hamburger button, select **Save**, and enter a report layout name.
-    Click **Save** and close the dialog.
-5.  Click **Save to File** to save the report layout to a REPX file.
-6.  Restart the application and click **Import from File** to import a report layout from the previously saved REPX file.
-7.  Click **Open Viewer** to display the imported layout in the DevExpress
-    [Report Viewer][viewer].
 
 
 ## Files to Review
