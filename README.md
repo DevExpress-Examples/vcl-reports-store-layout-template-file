@@ -7,7 +7,7 @@
 
 # DevExpress Reports for Delphi/C++Builder – Import and Save Report Layouts to XML Files
 
-This example uses XML-based REPX files as [report layout][vcl-reports] storage.
+This example uses XML-based REPX files as [report layout][reports-intro] storage.
 
 Run the app and execute the following actions:
 
@@ -137,22 +137,27 @@ You can design a new layout from scratch and then save it to a REPX file:
 
 ## Documentation
 
--   [Introduction to VCL Reports][vcl-reports]
+-   [Introduction to VCL Reports][reports-intro]
 -   [Tutorial: Create a table report using the Report Wizard][wizard-tutorial]
--   [Store report layouts in REPX files at design-time](https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout#string-list-editor)
--   [Use SQLite as a data source for reports (as demonstrated in the current example)](https://docs.devexpress.com/VCL/405750/ExpressCrossPlatformLibrary/vcl-backend/database-engines/vcl-backend-sqlite-support)
+-   [Use SQLite as a data source for reports (as demonstrated in the current example)][sqlite-data-source]
+-   [Store report layouts in REPX files at design-time][reports-design-time-store]
 -   API reference: 
-    -   [TdxReport.Layout]
+    -   [TdxReport.Layout] (an XML-based layout template that can be stored in a file)
     -   [TdxReport.Layout.LoadFromFile][Layout.LoadFromFile]
     -   [TdxReport.Layout.SaveToFile][Layout.SaveToFile]
-    -   [TdxReport.ReportName][ReportName]
-    -   [TdxBackendDatabaseSQLConnection]
+    -   [TdxReport.ReportName][ReportName] (internal report name that is not included in the layout)
+    -   [TdxBackendDatabaseSQLConnection] (supplies data to reports)
 
-[vcl-reports]: https://docs.devexpress.com/VCL/405469/ExpressReports/vcl-reports
+
+<!-- documentation links -->
+[reports-intro]: https://docs.devexpress.com/VCL/405469/ExpressReports/vcl-reports
 [designer]: https://docs.devexpress.com/XtraReports/119176/web-reporting/web-end-user-report-designer
 [viewer]: https://docs.devexpress.com/XtraReports/401850/web-reporting/web-document-viewer
 [wizard-tutorial]: https://docs.devexpress.com/VCL/405760/ExpressReports/getting-started/create-table-report-using-report-wizard
+[sqlite-data-source]: https://docs.devexpress.com/VCL/405750/ExpressCrossPlatformLibrary/vcl-backend/database-engines/vcl-backend-sqlite-support
+[reports-design-time-store]: https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout#string-list-editor
 
+<!-- reference links -->
 [TdxReport.Layout]: https://docs.devexpress.com/VCL/dxReport.TdxReport.Layout
 [Layout.LoadFromFile]: https://docwiki.embarcadero.com/Libraries/Athens/en/System.Classes.TStrings.LoadFromFile
 [Layout.SaveToFile]: https://docwiki.embarcadero.com/Libraries/Athens/en/System.Classes.TStrings.SaveToFile
@@ -161,8 +166,16 @@ You can design a new layout from scratch and then save it to a REPX file:
 
 ## More Examples
 
--   [Store DevExpress VCL Report Layouts in a Database](https://github.com/DevExpress-Examples/vcl-reports-store-layout-template-database)
--   [Localize the DevExpress VCL Report Viewer and Report Designer UI](https://github.com/DevExpress-Examples/vcl-reports-localize)
+-   [Store report layouts in a database][database-example]
+-   [Filter data records in a report][filter-data-records]
+-   [Generate reports in a backend / service application][non-interactive-export]
+-   [Localize the Report Viewer and Report Designer UI][localize]
+
+<!-- example links -->
+[database-example]: https://github.com/DevExpress-Examples/vcl-reports-store-layout-template-database
+[filter-data-records]: https://github.com/DevExpress-Examples/vcl-filter-report-preview-based-on-grid-selected-rows
+[non-interactive-export]: https://github.com/DevExpress-Examples/vcl-reports-non-interactive-export
+[localize]: https://github.com/DevExpress-Examples/vcl-reports-localize
 
 <!-- feedback -->
 ## Does This Example Address Your Development Requirements/Objectives?
@@ -171,3 +184,5 @@ You can design a new layout from scratch and then save it to a REPX file:
 
 (you will be redirected to DevExpress.com to submit your response)
 <!-- feedback end -->
+
+
