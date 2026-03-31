@@ -38,7 +38,7 @@ You can modify this preloaded report layout and then save changes to a REPX file
 2.  Click **Open Designer** to edit the loaded layout in the DevExpress
     [Report Designer][designer].
     Modify the layout as you see fit.
-3.  Once you have made changes in the **Report Designer** dialog, click the hamburger button, select **Save**, and close the dialog.
+3.  Once you have made changes in the Report Designer dialog, click the hamburger button, select **Save**, and close the dialog.
 4.  Click **Save to File** to save the report layout to a REPX file.
     You can overwrite an existing file or create a new file.
 5.  Restart the application and click **Import from File** to import a report layout from the previously saved REPX file.
@@ -53,9 +53,9 @@ You can design a new layout from scratch and then save it to a REPX file:
 1.  Build and run the sample application.
 2.  Click **Create New** to open a new blank report layout in the DevExpress
     [Report Designer][designer].
-3.  Design the report layout (template) using tools available in the **Report Designer**.  
+3.  Design the report layout (template) using tools available in the Report Designer.  
     Follow the tutorial: [Create a table report using the Report Wizard][wizard-tutorial].
-4.  Once you have made all necessary changes in the **Report Designer** dialog, click the hamburger button, select **Save**, and enter a report layout name.
+4.  Once you have made all necessary changes in the Report Designer dialog, click the hamburger button, select **Save**, and enter a report layout name.
     Click **Save** and close the dialog.
 5.  Click **Save to File** to save the report layout to a REPX file.
 6.  Restart the application and click **Import from File** to import a report layout from the previously saved REPX file.
