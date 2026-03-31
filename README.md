@@ -137,7 +137,7 @@ void __fastcall TMainForm::SaveReport(const String &FileName)
 
 ## Documentation
 
--   [Introduction to VCL Reports][reports-intro]
+-   [Introduction to DevExpress Reports for Delphi/C++Builder][reports-intro]
 -   [Tutorial: Create a table report using the Report Wizard][wizard-tutorial]
 -   [Use SQLite as a data source for reports (as demonstrated in the current example)][sqlite-data-source]
 -   [Store report layouts in REPX files at design-time][reports-design-time-store]
