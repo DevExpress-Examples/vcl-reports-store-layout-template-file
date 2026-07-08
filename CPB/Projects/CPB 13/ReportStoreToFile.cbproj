@@ -1,16 +1,17 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{78325D59-9C55-4DF5-9E88-7E84FAB72DB5}</ProjectGuid>
-        <ProjectVersion>20.3</ProjectVersion>
+        <ProjectVersion>20.4</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <MainSource>ReportStoreToFile.cpp</MainSource>
         <AppType>Application</AppType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Win64x</Platform>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <ProjectName Condition="'$(ProjectName)'==''">ReportStoreToFile</ProjectName>
         <TargetedPlatforms>1048579</TargetedPlatforms>
         <ApplicationTitle>DevExpress Example</ApplicationTitle>
+        <CC_Suffix Condition="'$(CC_Suffix)'==''">c</CC_Suffix>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -81,59 +82,57 @@
         <DynamicRTL>true</DynamicRTL>
         <UsePackages>true</UsePackages>
         <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
-        <FinalOutputDir>.\$(Platform)\$(Config)</FinalOutputDir>
+        <FinalOutputDir>.\</FinalOutputDir>
         <BCC_wpar>false</BCC_wpar>
         <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
         <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
         <ILINK_TranslatedLibraryPath>$(BDSLIB)\$(PLATFORM)\release\$(LANGDIR);$(ILINK_TranslatedLibraryPath)</ILINK_TranslatedLibraryPath>
         <ProjectType>CppVCLApplication</ProjectType>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;$(DCC_Namespace)</DCC_Namespace>
-        <AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;vclFireDAC.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;dbexpress.lib;DbxCommonDriver.lib;vclie.lib;vcledge.lib;FireDACMSAccDriver.lib;FireDACCommonODBC.lib;dxCoreRS37.lib;cxLibraryRS37.lib;dxGDIPlusRS37.lib;cxGridRS37.lib;cxExportRS37.lib;dxSpreadSheetCoreRS37.lib;dxComnRS37.lib;dxSpreadSheetRS37.lib;dxServerModeRS37.lib;dxmdsRS37.lib;dxSkinsCoreRS37.lib;dxBackendRS37.lib;dxPSCoreRS37.lib;dxPSdxPDFViewerLnkRS37.lib;dxPDFViewerRS37.lib;dxReportsRS37.lib</AllPackageLibs>
+        <AllPackageLibs>rtl.lib;vcl.lib;dbrtl.lib;FireDAC.lib;FireDACCommonDriver.lib;FireDACCommon.lib;xmlrtl.lib;vclFireDAC.lib;vcldb.lib;vclwinx.lib;vclimg.lib;bindengine.lib;vclx.lib;dbexpress.lib;DbxCommonDriver.lib;vclie.lib;vcledge.lib;FireDACMSAccDriver.lib;FireDACCommonODBC.lib;dxCoreRS37.lib;cxLibraryRS37.lib;dxGDIPlusRS37.lib;cxGridRS37.lib;cxExportRS37.lib;dxSpreadSheetCoreRS37.lib;dxComnRS37.lib;dxSpreadSheetRS37.lib;dxServerModeRS37.lib;dxmdsRS37.lib;dxSkinsCoreRS37.lib;dxBackendRS37.lib;dxPSCoreRS37.lib;dxPSdxPDFViewerLnkRS37.lib;dxPDFViewerRS37.lib;dxReportsRS37.lib;dxCoreRS37.lib;cxLibraryRS37.lib;dxGDIPlusRS37.lib;dxBackendRS37.lib;dxmdsRS37.lib;dxSkinsCoreRS37.lib;cxGridRS37.lib;cxExportRS37.lib;dxSpreadSheetCoreRS37.lib;dxComnRS37.lib;dxSpreadSheetRS37.lib;dxServerModeRS37.lib;dxReportsRS37.lib;dxPSCoreRS37.lib;dxPSdxPDFViewerLnkRS37.lib;dxPDFViewerRS37.lib</AllPackageLibs>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
         <Icon_MainIcon>$(BDS)\bin\cbuilder_PROJECTICON.ico</Icon_MainIcon>
         <UWP_CppLogo44>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_44.png</UWP_CppLogo44>
         <UWP_CppLogo150>$(BDS)\bin\Artwork\Windows\UWP\cppreg_UwpDefault_150.png</UWP_CppLogo150>
-        <VerInfo_Locale>3072</VerInfo_Locale>
+        <VerInfo_Locale>1033</VerInfo_Locale>
         <SanitizedProjectName>ReportStoreToFile</SanitizedProjectName>
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <PostBuildEvent><![CDATA[copy /Y "$(BDS)\Redist\$(Platform)\WebView2Loader.dll" "$(OUTPUTDIR)"
+$(PostBuildEvent)]]></PostBuildEvent>
+        <IncludePath>..\CPB 12\;..\CPB 13\;..\..\;Projects\CPB 12\;$(IncludePath)</IncludePath>
+        <ILINK_LibraryPath>..\CPB 12\;..\CPB 13\;..\..\;Projects\CPB 12\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <PackageImports>adortl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;cxADOAdaptersRS37;cxExportRS37;cxFireDACAdaptersRS37;cxGridEMFRS37;cxGridRS37;cxIBXAdaptersRS37;cxLibraryRS37;cxPivotGridChartRS37;cxPivotGridOLAPRS37;cxPivotGridRS37;cxSchedulerGridRS37;cxSchedulerRibbonStyleEventEditorRS37;cxSchedulerRS37;cxSchedulerTreeBrowserRS37;cxSchedulerWebServiceStorageRS37;cxTreeListdxBarPopupMenuRS37;cxTreeListRS37;cxVerticalGridRS37;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;dxADOEMFRS37;dxADOServerModeRS37;dxBarDBNavRS37;dxBarExtDBItemsRS37;dxBarExtItemsRS37;dxBarRS37;dxChartControlRS37;dxCloudServiceLibraryRS37;dxComnRS37;dxCoreRS37;dxdborRS37;dxdbtrRS37;dxDBXServerModeRS37;dxDockingRS37;dxEMFRS37;dxFireDACEMFRS37;dxFireDACServerModeRS37;dxFlowChartAdvancedCustomizeFormRS37;dxFlowChartDesignerRS37;dxFlowChartLayoutsRS37;dxFlowChartRS37;dxGanttControlRS37;dxGaugeControlRS37;dxGDIPlusRS37;dxHttpIndyRequestRS37;dxMapControlRS37;dxmdsRS37;dxNavBarRS37;dxOrgChartAdvancedCustomizeFormRS37;dxorgcRS37;dxPDFViewerRS37;dxPSCoreRS37;dxPScxCommonRS37;dxPScxExtCommonRS37;dxPScxGridLnkRS37;dxPScxPCProdRS37;dxPScxPivotGridLnkRS37;dxPScxSchedulerLnkRS37;dxPScxTLLnkRS37;dxPScxVGridLnkRS37;dxPSDBTeeChartRS37;dxPSdxChartControlLnkRS37;dxPSdxDBOCLnkRS37;dxPSdxDBTVLnkRS37;dxPSdxFCLnkRS37;dxPSdxGaugeControlLnkRS37;dxPSdxLCLnkRS37;dxPSdxMapControlLnkRS37;dxPSdxOCLnkRS37;dxPSdxPDFViewerLnkRS37;dxPSdxSpreadSheetLnkRS37;dxPSLnksRS37;dxPsPrVwAdvRS37;dxPSPrVwRibbonRS37;dxPSRichEditControlLnkRS37;dxPSTeeChartRS37;dxReportsRS37;dxRibbonCustomizationFormRS37;dxRibbonRS37;dxRichEditControlCoreRS37;dxRichEditControlRS37;dxRichEditCoreRS37;dxRichEditDocumentModelRS37;dxServerModeRS37;dxSkinsCoreRS37;dxSpellCheckerRS37;dxSpreadSheetConditionalFormattingDialogsRS37;dxSpreadSheetCoreConditionalFormattingDialogsRS37;dxSpreadSheetCoreRS37;dxSpreadSheetReportDesignerRS37;dxSpreadSheetRS37;dxTabbedMDIRS37;dxTileControlRS37;dxtrmdRS37;dxWizardControlRS37;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;inetstn;RESTBackendComponents;RESTComponents;rtl;Skia;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
-        <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;cxADOAdaptersRS29;cxExportRS29;cxFireDACAdaptersRS29;cxGridEMFRS29;cxGridRS29;cxIBXAdaptersRS29;cxLibraryRS29;cxPivotGridChartRS29;cxPivotGridOLAPRS29;cxPivotGridRS29;cxSchedulerGridRS29;cxSchedulerRibbonStyleEventEditorRS29;cxSchedulerRS29;cxSchedulerTreeBrowserRS29;cxSchedulerWebServiceStorageRS29;cxTreeListdxBarPopupMenuRS29;cxTreeListRS29;cxVerticalGridRS29;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;dxADOEMFRS29;dxADOServerModeRS29;dxBarDBNavRS29;dxBarExtDBItemsRS29;dxBarExtItemsRS29;dxBarRS29;dxChartControlRS29;dxCloudServiceLibraryRS29;dxComnRS29;dxCoreRS29;dxdborRS29;dxdbtrRS29;dxDBXServerModeRS29;dxDockingRS29;dxEMFRS29;dxFireDACEMFRS29;dxFireDACServerModeRS29;dxFlowChartAdvancedCustomizeFormRS29;dxFlowChartDesignerRS29;dxFlowChartLayoutsRS29;dxFlowChartRS29;dxGanttControlRS29;dxGaugeControlRS29;dxGDIPlusRS29;dxHttpIndyRequestRS29;dxMapControlRS29;dxmdsRS29;dxNavBarRS29;dxOrgChartAdvancedCustomizeFormRS29;dxorgcRS29;dxPDFViewerRS29;dxPSCoreRS29;dxPScxCommonRS29;dxPScxExtCommonRS29;dxPScxGridLnkRS29;dxPScxPCProdRS29;dxPScxPivotGridLnkRS29;dxPScxSchedulerLnkRS29;dxPScxTLLnkRS29;dxPScxVGridLnkRS29;dxPSDBTeeChartRS29;dxPSdxChartControlLnkRS29;dxPSdxDBOCLnkRS29;dxPSdxDBTVLnkRS29;dxPSdxFCLnkRS29;dxPSdxGaugeControlLnkRS29;dxPSdxLCLnkRS29;dxPSdxMapControlLnkRS29;dxPSdxOCLnkRS29;dxPSdxPDFViewerLnkRS29;dxPSdxSpreadSheetLnkRS29;dxPSLnksRS29;dxPsPrVwAdvRS29;dxPSPrVwRibbonRS29;dxPSRichEditControlLnkRS29;dxPSTeeChartRS29;dxReportsRS29;dxRibbonCustomizationFormRS29;dxRibbonRS29;dxRichEditControlCoreRS29;dxRichEditControlRS29;dxRichEditCoreRS29;dxRichEditDocumentModelRS29;dxServerModeRS29;dxSkinsCoreRS29;dxSpellCheckerRS29;dxSpreadSheetConditionalFormattingDialogsRS29;dxSpreadSheetCoreConditionalFormattingDialogsRS29;dxSpreadSheetCoreRS29;dxSpreadSheetReportDesignerRS29;dxSpreadSheetRS29;dxTabbedMDIRS29;dxTileControlRS29;dxtrmdRS29;dxWizardControlRS29;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;inetstn;RESTBackendComponents;RESTComponents;rtl;Skia;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <BCC_PCHName_Clang>ReportStoreToFilePCH1.h</BCC_PCHName_Clang>
         <Icon_MainIcon>ReportStoreToFile_Icon.ico</Icon_MainIcon>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
-        <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;cxADOAdaptersRS29;cxExportRS29;cxFireDACAdaptersRS29;cxGridEMFRS29;cxGridRS29;cxIBXAdaptersRS29;cxLibraryRS29;cxPivotGridChartRS29;cxPivotGridOLAPRS29;cxPivotGridRS29;cxSchedulerGridRS29;cxSchedulerRibbonStyleEventEditorRS29;cxSchedulerRS29;cxSchedulerTreeBrowserRS29;cxSchedulerWebServiceStorageRS29;cxTreeListdxBarPopupMenuRS29;cxTreeListRS29;cxVerticalGridRS29;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;dxADOEMFRS29;dxADOServerModeRS29;dxBarDBNavRS29;dxBarExtDBItemsRS29;dxBarExtItemsRS29;dxBarRS29;dxChartControlRS29;dxCloudServiceLibraryRS29;dxComnRS29;dxCoreRS29;dxdborRS29;dxdbtrRS29;dxDBXServerModeRS29;dxDockingRS29;dxEMFRS29;dxFireDACEMFRS29;dxFireDACServerModeRS29;dxFlowChartAdvancedCustomizeFormRS29;dxFlowChartDesignerRS29;dxFlowChartLayoutsRS29;dxFlowChartRS29;dxGanttControlRS29;dxGaugeControlRS29;dxGDIPlusRS29;dxHttpIndyRequestRS29;dxMapControlRS29;dxmdsRS29;dxNavBarRS29;dxOrgChartAdvancedCustomizeFormRS29;dxorgcRS29;dxPDFViewerRS29;dxPSCoreRS29;dxPScxCommonRS29;dxPScxExtCommonRS29;dxPScxGridLnkRS29;dxPScxPCProdRS29;dxPScxPivotGridLnkRS29;dxPScxSchedulerLnkRS29;dxPScxTLLnkRS29;dxPScxVGridLnkRS29;dxPSDBTeeChartRS29;dxPSdxChartControlLnkRS29;dxPSdxDBOCLnkRS29;dxPSdxDBTVLnkRS29;dxPSdxFCLnkRS29;dxPSdxGaugeControlLnkRS29;dxPSdxLCLnkRS29;dxPSdxMapControlLnkRS29;dxPSdxOCLnkRS29;dxPSdxPDFViewerLnkRS29;dxPSdxSpreadSheetLnkRS29;dxPSLnksRS29;dxPsPrVwAdvRS29;dxPSPrVwRibbonRS29;dxPSRichEditControlLnkRS29;dxPSTeeChartRS29;dxReportsRS29;dxRibbonCustomizationFormRS29;dxRibbonRS29;dxRichEditControlCoreRS29;dxRichEditControlRS29;dxRichEditCoreRS29;dxRichEditDocumentModelRS29;dxServerModeRS29;dxSkinsCoreRS29;dxSpellCheckerRS29;dxSpreadSheetConditionalFormattingDialogsRS29;dxSpreadSheetCoreConditionalFormattingDialogsRS29;dxSpreadSheetCoreRS29;dxSpreadSheetReportDesignerRS29;dxSpreadSheetRS29;dxTabbedMDIRS29;dxTileControlRS29;dxtrmdRS29;dxWizardControlRS29;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;inetstn;RESTBackendComponents;RESTComponents;rtl;Skia;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <BCC_PCHName_Clang>ReportStoreToFilePCH1.h</BCC_PCHName_Clang>
-        <Icon_MainIcon>..\Delphi\ReportStoreToFile_Icon.ico</Icon_MainIcon>
+        <Icon_MainIcon>..\..\..\Delphi\ReportStoreToFile_Icon.ico</Icon_MainIcon>
         <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64x)'!=''">
-        <PackageImports>adortl;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindcompvclsmp;bindcompvclwinx;bindengine;CloudService;CustomIPTransport;cxADOAdaptersRS29;cxExportRS29;cxFireDACAdaptersRS29;cxGridEMFRS29;cxGridRS29;cxIBXAdaptersRS29;cxLibraryRS29;cxPivotGridChartRS29;cxPivotGridOLAPRS29;cxPivotGridRS29;cxSchedulerGridRS29;cxSchedulerRibbonStyleEventEditorRS29;cxSchedulerRS29;cxSchedulerTreeBrowserRS29;cxSchedulerWebServiceStorageRS29;cxTreeListdxBarPopupMenuRS29;cxTreeListRS29;cxVerticalGridRS29;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;dxADOEMFRS29;dxADOServerModeRS29;dxBarDBNavRS29;dxBarExtDBItemsRS29;dxBarExtItemsRS29;dxBarRS29;dxChartControlRS29;dxCloudServiceLibraryRS29;dxComnRS29;dxCoreRS29;dxdborRS29;dxdbtrRS29;dxDBXServerModeRS29;dxDockingRS29;dxEMFRS29;dxFireDACEMFRS29;dxFireDACServerModeRS29;dxFlowChartAdvancedCustomizeFormRS29;dxFlowChartDesignerRS29;dxFlowChartLayoutsRS29;dxFlowChartRS29;dxGanttControlRS29;dxGaugeControlRS29;dxGDIPlusRS29;dxHttpIndyRequestRS29;dxMapControlRS29;dxmdsRS29;dxNavBarRS29;dxOrgChartAdvancedCustomizeFormRS29;dxorgcRS29;dxPDFViewerRS29;dxPSCoreRS29;dxPScxCommonRS29;dxPScxExtCommonRS29;dxPScxGridLnkRS29;dxPScxPCProdRS29;dxPScxPivotGridLnkRS29;dxPScxSchedulerLnkRS29;dxPScxTLLnkRS29;dxPScxVGridLnkRS29;dxPSDBTeeChartRS29;dxPSdxChartControlLnkRS29;dxPSdxDBOCLnkRS29;dxPSdxDBTVLnkRS29;dxPSdxFCLnkRS29;dxPSdxGaugeControlLnkRS29;dxPSdxLCLnkRS29;dxPSdxMapControlLnkRS29;dxPSdxOCLnkRS29;dxPSdxPDFViewerLnkRS29;dxPSdxSpreadSheetLnkRS29;dxPSLnksRS29;dxPsPrVwAdvRS29;dxPSPrVwRibbonRS29;dxPSRichEditControlLnkRS29;dxPSTeeChartRS29;dxReportsRS29;dxRibbonCustomizationFormRS29;dxRibbonRS29;dxRichEditControlCoreRS29;dxRichEditControlRS29;dxRichEditCoreRS29;dxRichEditDocumentModelRS29;dxServerModeRS29;dxSkinsCoreRS29;dxSpellCheckerRS29;dxSpreadSheetConditionalFormattingDialogsRS29;dxSpreadSheetCoreConditionalFormattingDialogsRS29;dxSpreadSheetCoreRS29;dxSpreadSheetReportDesignerRS29;dxSpreadSheetRS29;dxTabbedMDIRS29;dxTileControlRS29;dxtrmdRS29;dxWizardControlRS29;emsclient;emsclientfiredac;emsedge;emshosting;emsserverresource;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACCommonODBC;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMongoDBDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;ibmonitor;ibxbindings;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;inetstn;RESTBackendComponents;RESTComponents;rtl;Skia;soapmidas;soaprtl;soapserver;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vcledge;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;VclSmp;vcltouch;vclwinx;vclx;xmlrtl;$(PackageImports)</PackageImports>
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
         <BT_BuildType>Debug</BT_BuildType>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <BCC_EnableBatchCompilation>true</BCC_EnableBatchCompilation>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
+        <PostBuildEvent><![CDATA[copy /Y "$(BDS)\Redist\win64\WebView2Loader.dll" "$(OUTPUTDIR)"]]></PostBuildEvent>
         <BCC_PCHName_Clang>ReportStoreToFilePCH1.h</BCC_PCHName_Clang>
-        <PostBuildEvent><![CDATA[copy /Y "$(BDS)\Redist\win64\WebView2Loader.dll" $(OUTPUTDIR)
-$(PostBuildEvent)]]></PostBuildEvent>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <BCC_OptimizeForSpeed>false</BCC_OptimizeForSpeed>
@@ -161,20 +160,19 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <ILINK_LibraryPath>$(BDSLIB)\$(PLATFORM)$(CC_SUFFIX)\debug;$(ILINK_LibraryPath)</ILINK_LibraryPath>
-        <PostBuildEvent><![CDATA[copy /Y "$(BDS)\Redist\win32\WebView2Loader.dll" $(OUTPUTDIR)]]></PostBuildEvent>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>ReportStoreToFile_Icon.ico</Icon_MainIcon>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi;vclFireDAC.bpi;vcldb.bpi;vclwinx.bpi;vclimg.bpi;bindengine.bpi;vclx.bpi;dbexpress.bpi;DbxCommonDriver.bpi;vclie.bpi;vcledge.bpi;FireDACMSAccDriver.bpi;FireDACCommonODBC.bpi;dxCoreRS37.bpi;cxLibraryRS37.bpi;dxGDIPlusRS37.bpi;cxGridRS37.bpi;cxExportRS37.bpi;dxSpreadSheetCoreRS37.bpi;dxComnRS37.bpi;dxSpreadSheetRS37.bpi;dxServerModeRS37.bpi;dxmdsRS37.bpi;dxSkinsCoreRS37.bpi;dxBackendRS37.bpi;dxPSCoreRS37.bpi;dxPSdxPDFViewerLnkRS37.bpi;dxPDFViewerRS37.bpi;dxReportsRS37.bpi;dxCoreRS37.bpi;cxLibraryRS37.bpi;dxGDIPlusRS37.bpi;dxBackendRS37.bpi;dxmdsRS37.bpi;dxSkinsCoreRS37.bpi;cxGridRS37.bpi;cxExportRS37.bpi;dxSpreadSheetCoreRS37.bpi;dxComnRS37.bpi;dxSpreadSheetRS37.bpi;dxServerModeRS37.bpi;dxReportsRS37.bpi;dxPSCoreRS37.bpi;dxPSdxPDFViewerLnkRS37.bpi;dxPDFViewerRS37.bpi</LinkPackageImports>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <Icon_MainIcon>..\Delphi\ReportStoreToFile_Icon.ico</Icon_MainIcon>
+        <Icon_MainIcon>..\..\..\Delphi\ReportStoreToFile_Icon.ico</Icon_MainIcon>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64x)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi;vclFireDAC.bpi;vcldb.bpi;vclwinx.bpi;vclimg.bpi;bindengine.bpi;vclx.bpi;dbexpress.bpi;DbxCommonDriver.bpi;vclie.bpi;vcledge.bpi;FireDACMSAccDriver.bpi;FireDACCommonODBC.bpi;dxCoreRS37.bpi;cxLibraryRS37.bpi;dxGDIPlusRS37.bpi;cxGridRS37.bpi;cxExportRS37.bpi;dxSpreadSheetCoreRS37.bpi;dxComnRS37.bpi;dxSpreadSheetRS37.bpi;dxServerModeRS37.bpi;dxmdsRS37.bpi;dxSkinsCoreRS37.bpi;dxBackendRS37.bpi;dxPSCoreRS37.bpi;dxPSdxPDFViewerLnkRS37.bpi;dxPDFViewerRS37.bpi;dxReportsRS37.bpi</LinkPackageImports>
+        <LinkPackageImports>rtl.bpi;vcl.bpi;dbrtl.bpi;FireDAC.bpi;FireDACCommonDriver.bpi;FireDACCommon.bpi;xmlrtl.bpi;vclFireDAC.bpi;vcldb.bpi;vclwinx.bpi;vclimg.bpi;bindengine.bpi;vclx.bpi;dbexpress.bpi;DbxCommonDriver.bpi;vclie.bpi;vcledge.bpi;FireDACMSAccDriver.bpi;FireDACCommonODBC.bpi;dxCoreRS37.bpi;cxLibraryRS37.bpi;dxGDIPlusRS37.bpi;cxGridRS37.bpi;cxExportRS37.bpi;dxSpreadSheetCoreRS37.bpi;dxComnRS37.bpi;dxSpreadSheetRS37.bpi;dxServerModeRS37.bpi;dxmdsRS37.bpi;dxSkinsCoreRS37.bpi;dxBackendRS37.bpi;dxPSCoreRS37.bpi;dxPSdxPDFViewerLnkRS37.bpi;dxPDFViewerRS37.bpi;dxReportsRS37.bpi;dxCoreRS37.bpi;cxLibraryRS37.bpi;dxGDIPlusRS37.bpi;dxBackendRS37.bpi;dxmdsRS37.bpi;dxSkinsCoreRS37.bpi;cxGridRS37.bpi;cxExportRS37.bpi;dxSpreadSheetCoreRS37.bpi;dxComnRS37.bpi;dxSpreadSheetRS37.bpi;dxServerModeRS37.bpi;dxReportsRS37.bpi;dxPSCoreRS37.bpi;dxPSdxPDFViewerLnkRS37.bpi;dxPDFViewerRS37.bpi</LinkPackageImports>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>ReportStoreToFile_Icon.ico</Icon_MainIcon>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
@@ -185,13 +183,16 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <BCC_UseClassicCompiler>false</BCC_UseClassicCompiler>
         <Icon_MainIcon>ReportStoreToFile_Icon.ico</Icon_MainIcon>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <Icon_MainIcon>..\Delphi\ReportStoreToFile_Icon.ico</Icon_MainIcon>
+        <Icon_MainIcon>..\..\..\Delphi\ReportStoreToFile_Icon.ico</Icon_MainIcon>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64x)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
     <ItemGroup>
         <CppCompile Include="ReportStoreToFile.cpp">
@@ -204,12 +205,13 @@ $(PostBuildEvent)]]></PostBuildEvent>
             <BuildOrder>1</BuildOrder>
             <PCH>true</PCH>
         </PCHCompile>
-        <CppCompile Include="uMainForm.cpp">
+        <CppCompile Include="..\..\uMainForm.cpp">
             <Form>MainForm</Form>
             <FormType>dfm</FormType>
-            <DependentOn>uMainForm.h</DependentOn>
+            <DependentOn>..\..\uMainForm.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <FormResources Include="..\..\uMainForm.dfm"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -279,6 +281,16 @@ $(PostBuildEvent)]]></PostBuildEvent>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\bin64\libc++-370.dll" Class="DependencyModule">
+                    <Platform Name="Win64x">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true'" LocalName="$(BDS)\bin64\libunwind-370.dll" Class="DependencyModule">
+                    <Platform Name="Win64x">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin\borlndmm.dll" Class="DependencyModule">
                     <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
@@ -324,13 +336,28 @@ $(PostBuildEvent)]]></PostBuildEvent>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win64x\Debug\ReportStoreToFile.exe" Configuration="Debug" Class="ProjectOutput">
+                <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\binarm64ec\borlndmm.dll" Class="DependencyModule">
+                    <Platform Name="WinARM64EC">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'!='true'" LocalName="$(BDS)\binarm64ec\cc64370.dll" Class="DependencyModule">
+                    <Platform Name="WinARM64EC">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile Condition="'$(DynamicRTL)'=='true' And '$(Multithreaded)'=='true'" LocalName="$(BDS)\binarm64ec\cc64370mt.dll" Class="DependencyModule">
+                    <Platform Name="WinARM64EC">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName=".\ReportStoreToFile.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64x">
                         <RemoteName>ReportStoreToFile.exe</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName=".\Win64x\Debug\ReportStoreToFile.pdb" Configuration="Debug" Class="DebugSymbols">
+                <DeployFile LocalName=".\ReportStoreToFile.pdb" Configuration="Debug" Class="DebugSymbols">
                     <Platform Name="Win64x">
                         <RemoteName>ReportStoreToFile.pdb</RemoteName>
                         <Overwrite>true</Overwrite>
@@ -993,6 +1020,9 @@ $(PostBuildEvent)]]></PostBuildEvent>
                     <Platform Name="Win64x">
                         <Operation>1</Operation>
                     </Platform>
+                    <Platform Name="WinARM64EC">
+                        <Operation>1</Operation>
+                    </Platform>
                 </DeployClass>
                 <DeployClass Name="ProjectiOSDeviceDebug">
                     <Platform Name="iOSDevice32">
@@ -1067,6 +1097,10 @@ $(PostBuildEvent)]]></PostBuildEvent>
                         <RemoteDir>Assets</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
+                    <Platform Name="WinARM64EC">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
                 </DeployClass>
                 <DeployClass Name="UWP_CppLogo44">
                     <Platform Name="Win32">
@@ -1078,6 +1112,10 @@ $(PostBuildEvent)]]></PostBuildEvent>
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win64x">
+                        <RemoteDir>Assets</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="WinARM64EC">
                         <RemoteDir>Assets</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
@@ -1294,6 +1332,7 @@ $(PostBuildEvent)]]></PostBuildEvent>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="WinARM64EC" Name="$(PROJECTNAME)"/>
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>
@@ -1311,7 +1350,15 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
         <PreLinkEvent/>
         <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
-        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\win32\WebView2Loader.dll&quot; $(OUTPUTDIR)</PostBuildEvent>
+        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\$(Platform)\WebView2Loader.dll&quot; &quot;$(OUTPUTDIR)&quot;</PostBuildEvent>
+        <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' And '$(Platform)'=='Win64'">
+        <PreBuildEvent/>
+        <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+        <PreLinkEvent/>
+        <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\$(Platform)\WebView2Loader.dll&quot; &quot;$(OUTPUTDIR)&quot;</PostBuildEvent>
         <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Debug' And '$(Platform)'=='Win64x'">
@@ -1319,8 +1366,23 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
         <PreLinkEvent/>
         <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
-        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\win64\WebView2Loader.dll&quot; $(OUTPUTDIR)
-</PostBuildEvent>
+        <PostBuildEvent><![CDATA[copy /Y "$(BDS)\Redist\win64\WebView2Loader.dll" "$(OUTPUTDIR)"]]></PostBuildEvent>
+        <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' And '$(Platform)'=='Win32'">
+        <PreBuildEvent/>
+        <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+        <PreLinkEvent/>
+        <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\$(Platform)\WebView2Loader.dll&quot; &quot;$(OUTPUTDIR)&quot;</PostBuildEvent>
+        <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' And '$(Platform)'=='Win64'">
+        <PreBuildEvent/>
+        <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
+        <PreLinkEvent/>
+        <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
+        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\$(Platform)\WebView2Loader.dll&quot; &quot;$(OUTPUTDIR)&quot;</PostBuildEvent>
         <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' And '$(Platform)'=='Win64x'">
@@ -1328,8 +1390,7 @@ $(PostBuildEvent)]]></PostBuildEvent>
         <PreBuildEventIgnoreExitCode>False</PreBuildEventIgnoreExitCode>
         <PreLinkEvent/>
         <PreLinkEventIgnoreExitCode>False</PreLinkEventIgnoreExitCode>
-        <PostBuildEvent>copy /Y &quot;$(BDS)\Redist\win64\WebView2Loader.dll&quot; $(OUTPUTDIR)
-</PostBuildEvent>
+        <PostBuildEvent><![CDATA[copy /Y "$(BDS)\Redist\win64\WebView2Loader.dll" "$(OUTPUTDIR)"]]></PostBuildEvent>
         <PostBuildEventIgnoreExitCode>False</PostBuildEventIgnoreExitCode>
     </PropertyGroup>
 </Project>
